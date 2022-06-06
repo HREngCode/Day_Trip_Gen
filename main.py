@@ -4,11 +4,21 @@ import random
 #Places to visit
 destinations =  ['Orlando', 'San Francisco', 'Las Vegas', 'Seattle', 'Minneapolis', 'New York City'] 
 
-#Randomly select desitination
-def select_destination (destination):
-    return destination
+#Places to eat
+restaurants = ['Carrabas', 'On The Border', 'Texas Roadhouse', 'Joes Crab Shack', 'PF Changs'] 
 
-place_selected = select_destination (random.choice(destinations))
+#Methods of transportation
+trans_methods = ['Boat', 'Train', 'Car', 'Plane'] 
+
+#Forms of entertainment
+ent_forms = ['Dance Club', 'Comedy Bar', 'Playhouse Theater', 'Cinema', 'Escape Room'] 
+
+#Randomly select item function
+def select_item(list):
+    random_item = random.choice(list)
+    return random_item
+
+place_selected = select_item(destinations)
 
 #Opening to select destination
 print ("Welcome to the Day Trip Generator. We hope to make your travel planning as easy as possible. Let's start with a location. How about " + place_selected + "? Does that sound like a good idea? type yes or no"  )
@@ -19,7 +29,7 @@ while place_answer != "yes" and place_answer != "no":
     place_answer = input()
 
 while place_answer == "no":
-    place_selected = select_destination (random.choice(destinations))
+    place_selected = select_item(destinations)
     print("We want to make sure you are satisfied. Let's try another place.")
     print("How about " + place_selected + " ?")
     place_answer = input()
@@ -27,16 +37,10 @@ while place_answer == "no":
         print("You must enter yes or no")
         place_answer = input()
     
-#Places to eat
-restaurants = ['Carrabas', 'On The Border', 'Texas Roadhouse', 'Joes Crab Shack', 'PF Changs'] 
+
 
 #Randomly select restaurant
-if place_answer == "yes":
-    def select_restaurant (restaurant):
-        return restaurant
-
-    restaurant_selected = select_restaurant (random.choice(restaurants))
-
+restaurant_selected = select_item (restaurants)
 
 #Validate selected restaurant
 if place_answer == "yes":
@@ -47,7 +51,7 @@ if place_answer == "yes":
         rest_answer = input()
 
     while rest_answer == "no":
-        restaurant_selected = select_restaurant (random.choice(restaurants))
+        restaurant_selected = select_item(restaurants)
         print("Not what you're in the mood for. Let's try something else.")
         print("How about " + restaurant_selected + " ?")
         rest_answer = input()
@@ -55,14 +59,10 @@ if place_answer == "yes":
             print("You must enter yes or no")
             rest_answer = input()
 
-#Methods of transportation
-trans_methods = ['Boat', 'Train', 'Car', 'Plane'] 
+
 
 #Randomly select transportation
-def select_transportation (transportation):
-    return transportation
-
-transportation_selected = select_transportation (random.choice(trans_methods))
+transportation_selected = select_item(trans_methods)
 
 #Validate selected transportation
 if rest_answer == "yes":
@@ -73,7 +73,7 @@ if rest_answer == "yes":
         trans_answer = input()
 
     while trans_answer == "no":
-        transportation_selected = select_transportation (random.choice(trans_methods))
+        transportation_selected = select_item(trans_methods)
         print("Not what you had in mind?")
         print("How about a " + transportation_selected + " ?")
         trans_answer = input()
@@ -81,15 +81,10 @@ if rest_answer == "yes":
             print("You must enter yes or no")
             trans_answer = input()
 
-#Forms of entertainment
-ent_forms = ['Dance Club', 'Comedy Bar', 'Playhouse Theater', 'Cinema', 'Escape Room'] 
+
 
 #Randomly select entertainment
-def select_entertainment (entertainment):
-    return entertainment
-
-entertainment_selected = select_entertainment (random.choice(ent_forms))
-print(entertainment_selected)
+entertainment_selected = select_item(ent_forms)
 
 #Validate selected entertainment
 if trans_answer == "yes":
@@ -100,7 +95,7 @@ if trans_answer == "yes":
         ent_answer = input()
 
     while ent_answer == "no":
-        entertainment_selected = select_transportation (random.choice(ent_forms))
+        entertainment_selected = select_item(ent_forms)
         print("Not what you had in mind?")
         print("How about a " + entertainment_selected + " ?")
         ent_answer = input()
