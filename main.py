@@ -20,24 +20,25 @@ def select_item(list):
 
 place_selected = select_item(destinations)
 
+def validate_answer(user_input):
+    while user_input != "yes" and user_input != "no":
+        print("You must enter yes or no")
+        user_input = input()
+    return user_input
+
 #Opening to select destination
 print ("Welcome to the Day Trip Generator. We hope to make your travel planning as easy as possible. Let's start with a location. How about " + place_selected + "? Does that sound like a good idea? type yes or no"  )
 place_answer = input()
 
-while place_answer != "yes" and place_answer != "no":
-    print("You must enter yes or no")
-    place_answer = input()
+place_answer = validate_answer(place_answer)
 
 while place_answer == "no":
     place_selected = select_item(destinations)
     print("We want to make sure you are satisfied. Let's try another place.")
     print("How about " + place_selected + " ?")
     place_answer = input()
-    while place_answer != "yes" and place_answer != "no":
-        print("You must enter yes or no")
-        place_answer = input()
+    place_answer = validate_answer(place_answer)
     
-
 
 #Randomly select restaurant
 restaurant_selected = select_item (restaurants)
@@ -46,18 +47,14 @@ restaurant_selected = select_item (restaurants)
 if place_answer == "yes":
     print("Now that you have a destination, you can pick a restaurant. How does " + restaurant_selected + " sound?")
     rest_answer = input("Please type yes or no." )
-    while rest_answer != "yes" and rest_answer != "no":
-        print("You must enter yes or no")
-        rest_answer = input()
+    rest_answer = validate_answer(rest_answer)
 
     while rest_answer == "no":
         restaurant_selected = select_item(restaurants)
         print("Not what you're in the mood for. Let's try something else.")
         print("How about " + restaurant_selected + " ?")
         rest_answer = input()
-        while rest_answer != "yes" and rest_answer != "no":
-            print("You must enter yes or no")
-            rest_answer = input()
+        rest_answer = validate_answer(rest_answer)
 
 
 
@@ -68,18 +65,14 @@ transportation_selected = select_item(trans_methods)
 if rest_answer == "yes":
     print("How do you prefer to get to your destination? Would a " + transportation_selected + " work?")
     trans_answer = input("Please type yes or no." )
-    while trans_answer != "yes" and trans_answer != "no":
-        print("You must enter yes or no")
-        trans_answer = input()
+    trans_answer = validate_answer(trans_answer)
 
     while trans_answer == "no":
         transportation_selected = select_item(trans_methods)
         print("Not what you had in mind?")
         print("How about a " + transportation_selected + " ?")
         trans_answer = input()
-        while trans_answer != "yes" and trans_answer != "no":
-            print("You must enter yes or no")
-            trans_answer = input()
+        trans_answer = validate_answer(trans_answer)
 
 
 
@@ -90,18 +83,14 @@ entertainment_selected = select_item(ent_forms)
 if trans_answer == "yes":
     print("What type of entertainment are you looking for? Would a " + entertainment_selected + " be on your agenda?")
     ent_answer = input("Please type yes or no." )
-    while ent_answer != "yes" and ent_answer != "no":
-        print("You must enter yes or no")
-        ent_answer = input()
+    ent_answer = validate_answer(ent_answer)
 
     while ent_answer == "no":
         entertainment_selected = select_item(ent_forms)
         print("Not what you had in mind?")
         print("How about a " + entertainment_selected + " ?")
         ent_answer = input()
-        while ent_answer != "yes" and ent_answer != "no":
-            print("You must enter yes or no")
-            ent_answer = input()
+        ent_answer = validate_answer(ent_answer)
 
 #Display completed trip
 print("We are excited to book the following trip for you! Please confirm the following answers are correct")
